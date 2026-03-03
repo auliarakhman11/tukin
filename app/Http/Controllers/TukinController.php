@@ -623,10 +623,10 @@ class TukinController extends Controller
             $spreadsheet->getActiveSheet()->setCellValue('A' . $kolom, "'".$d->nip);
             $spreadsheet->getActiveSheet()->setCellValue('B' . $kolom, $d->nm_pegawai);
             $spreadsheet->getActiveSheet()->setCellValue('C' . $kolom, $d->tgl);
-            $spreadsheet->getActiveSheet()->setCellValue('D' . $kolom, $d->jam_masuk);
-            $spreadsheet->getActiveSheet()->setCellValue('E' . $kolom, $d->jam_keluar);
-            $spreadsheet->getActiveSheet()->setCellValue('F' . $kolom, $d->scan_masuk);
-            $spreadsheet->getActiveSheet()->setCellValue('G' . $kolom, $d->scan_keluar);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $kolom, $d->jam_masuk ? substr($d->jam_masuk,0,5) : '');
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $kolom, $d->jam_keluar ? substr($d->jam_keluar,0,5) : '');
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $kolom, $d->scan_masuk ? substr($d->scan_masuk,0,5) : '');
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $kolom, $d->scan_keluar ? substr($d->scan_keluar,0,5) : '');
             $spreadsheet->getActiveSheet()->setCellValue('H' . $kolom, $d->denda_masuk.'%');
             $spreadsheet->getActiveSheet()->setCellValue('I' . $kolom, $d->denda_pulang.'%');
             $spreadsheet->getActiveSheet()->setCellValue('J' . $kolom, $d->potongan.'%');
